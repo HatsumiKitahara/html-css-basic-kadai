@@ -1,0 +1,118 @@
+/* ================================================== */
+/* h1, p, bodyの余白を0に */
+body, h1, p {
+    margin: 0;
+}
+
+/* 記事内のpとaのデフォルトフォントサイズ */
+p, a {
+    font-size: 20px;
+}
+
+/* ================================================== */
+/* headerのスタイル */
+header {
+    background-color: rgb(244, 79, 79);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* header内h1の文字色 */
+header h1 {
+    color: rgb(255, 255, 255);
+}
+
+/* ================================================== */
+/* main全体の余白 */
+main {
+    padding: 10px;
+}
+
+/* ================================================== */
+/* Flexコンテナ: id="parent" */
+#parent {
+    display: flex;
+    justify-content: space-between; /* 左右のアイテムも含め均等配置 */
+}
+
+/* ================================================== */
+/* class="contents" のスタイル */
+.contents {
+    border: 3px solid rgb(238, 204, 204);
+    flex-basis: 25%; /* 幅指定 */
+    padding: 10px 15px; /* 内側余白: 上下10px, 左右15px */
+    margin: 20px 0; /* 外側余白: 上下20px, 左右0 */
+    text-align: center; /* 中央揃え */
+}
+
+/* h2のスタイル */
+.contents h2 {
+    font-size: 25px;
+    border-bottom: 3px dotted rgb(236, 122, 122);
+    position: relative;
+    padding-left: 25px;
+}
+
+/* h2の前に●記号を表示 */
+.contents h2::before {
+    content: "●";
+    color: rgb(239, 111, 139);
+    position: absolute;
+    left: 0;
+}
+
+/* class="contents" 内の2番目のpの最初の文字 */
+.contents p:nth-of-type(2)::first-letter {
+    font-weight: bold;
+    color: rgb(97, 206, 249);
+}
+
+/* class="contents" 内のimgスタイル */
+.contents img {
+    margin: 10px 0;
+    width: 70%;
+}
+
+/* ================================================== */
+/* footerスタイル */
+footer {
+    background-color: rgb(244, 79, 79);
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* footer内aのスタイル */
+footer a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+/* 訪問済リンク */
+footer a:visited {
+    color: rgb(193, 234, 251);
+}
+
+/* マウスホバー時 */
+footer a:hover {
+    color: rgb(245, 178, 168);
+}
+
+/* ================================================== */
+/* レスポンシブ: 画面幅768px以下 */
+@media screen and (max-width: 768px) {
+    .contents h2 {
+        font-size: 30px;
+    }
+
+    p, a {
+        font-size: 25px;
+    }
+
+    #parent {
+        flex-direction: column; /* 縦並びに変更 */
+    }
+
+    .contents {
+        flex-basis: 100%; /* 幅を100%に変更 */
+    }
+}
